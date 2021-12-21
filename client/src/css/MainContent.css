@@ -1,0 +1,49 @@
+.MainContentContainer {
+    width: 70vw;
+    margin: auto;
+    z-index: 1;
+    border-radius: 1.3rem;
+    box-shadow: 0px 0px 7px rgba(0,0,0,0.5);
+    margin-top: -2.5rem;
+    margin-bottom: 500px;
+    padding: 2rem;
+    background: white;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+
+
+.MainHow {
+    grid-column: span 3;
+    height:fit-content;
+    margin-bottom: 5rem;
+}
+/* #00ce9e,#0098cf, #4935ff, #9131ff */
+.MainHow h2 {
+    font-size: 2.5rem;
+    background-image: linear-gradient(-45deg, #00ce9e,#0098cf, #4935ff, #9131ff);
+    background-size: contain;
+    background-clip: text;
+    color: rgba(0,0,0,0);
+}
+.MainHow p {
+    grid-row-start: 2;
+    line-height: 1.5rem;
+    font-size: 1.2rem;
+}
+.MainTeam {
+    grid-row-start: 2;
+    grid-column: 3 / span 3;
+}
+.MainTeam h2 {
+    font-size: 2.5rem;
+    background-image: linear-gradient(-45deg, #00ce9e,#0098cf, #4935ff, #9131ff);
+    background-size: contain;
+    background-clip: text;
+    color: rgba(0,0,0,0);
+}
+.MainTeam p {
+    line-height: 1.5rem;
+    font-size: 1.2rem;
+}

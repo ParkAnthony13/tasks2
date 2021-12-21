@@ -1,0 +1,222 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Rubik', sans-serif;
+}
+
+:root {
+  --one: repeat(1,fr);
+  --two: repeat(2,fr);
+  --three: repeat(3,fr);
+  --four: repeat(4,fr);
+  --five: repeat(5,fr);
+}
+.landing {
+  height: 100%;
+  margin: 0px;
+  color: white;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding-bottom: 60px;
+  background-image: 
+    linear-gradient(135deg, rgba(19, 176, 223, 0.26) 0%, 
+      rgba(19, 176, 223, 0.26) 23%,
+      rgba(16, 160, 197, 0.26) 23%, 
+      rgba(16, 160, 197, 0.26) 65%,
+      rgba(13, 144, 172, 0.26) 65%, 
+      rgba(13, 144, 172, 0.26) 70%,
+      rgba(9, 129, 146, 0.26) 70%, 
+      rgba(9, 129, 146, 0.26) 74%,
+      rgba(6, 113, 121, 0.26) 74%, 
+      rgba(6, 113, 121, 0.26) 90%,
+      rgba(3, 97, 95, 0.26) 90%, 
+      rgba(3, 97, 95, 0.26) 100%),
+    linear-gradient(45deg, rgba(65, 234, 230, 0.26) 0%, 
+      rgba(65, 234, 230, 0.26) 28%,
+      rgba(88, 192, 215, 0.26) 28%, 
+      rgba(88, 192, 215, 0.26) 55%,
+      rgba(110, 150, 201, 0.26) 55%, 
+      rgba(110, 150, 201, 0.26) 66%,
+      rgba(133, 107, 186, 0.26) 66%, 
+      rgba(133, 107, 186, 0.26) 80%,
+      rgba(155, 65, 172, 0.26) 80%, 
+      rgba(155, 65, 172, 0.26) 85%,
+      rgba(178, 23, 157, 0.26) 85%, 
+      rgba(178, 23, 157, 0.26) 100%),
+    linear-gradient(90deg, rgb(27, 194, 246) 0%, 
+      rgb(27, 194, 246) 6%,
+      rgb(39, 174, 237) 6%, 
+      rgb(39, 174, 237) 32%,
+      rgb(50, 155, 229) 32%, 
+      rgb(50, 155, 229) 40%,
+      rgb(62, 135, 220) 40%, 
+      rgb(62, 135, 220) 66%,
+      rgb(74, 116, 211) 66%, 
+      rgb(74, 116, 211) 72%,
+      rgb(86, 96, 202) 72%, 
+      rgb(86, 96, 202) 86%,
+      rgb(97, 77, 194) 86%, 
+      rgb(97, 77, 194) 96%,
+      rgb(109, 57, 185) 96%, 
+      rgb(109, 57, 185) 100%);
+
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+
+
+nav {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  max-width: 80vw;
+  margin: auto;
+}
+
+nav ul {
+  list-style-type: none;
+  float: right;
+}
+nav ul li {
+  float: left;
+  font-weight: 600;
+}
+
+nav ul li a {
+  color: white;
+  padding: 0 30px;
+}
+
+#logo {
+  position: relative;
+  top: -.5rem;
+  height: 40px;
+  width: 120px;
+  color: white;
+  text-decoration: none;
+  background-image: url('./img/swordlogo2white.svg');
+  background-size:contain;
+  background-repeat: no-repeat;
+
+}
+
+.container {
+  text-align: center;
+  width: 60%;
+  margin: 110px auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+.container p {
+  font-size: 1.3em;
+  line-height: 1.4em;
+}
+
+.action {
+  display: flex;
+}
+
+
+.action button {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  width: 150px;
+  height: 3rem;
+  margin: .5rem auto;
+  padding: .3rem;
+  border-radius: .4em;
+
+  box-shadow: 0px 3px 5px rgba(0,0,0,0.5);
+
+  border:none;
+  background: none;
+	background: linear-gradient(-45deg, #00ce9e,#0098cf, #4935ff, #9131ff);
+	background-size: 400% 100%;
+	animation: gradient 5s ease infinite;
+  animation-play-state: paused;
+}
+.action button:hover {
+  animation-play-state:running;
+}
+.action button::after {
+  outline: 2px solid red;
+  z-index: 1;
+  height: 1px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.dflex {
+  display:flex;
+}
+.jcCenter {
+  justify-content: center;
+}
+.jcSpaceBet {
+  justify-content: space-between;
+}
+.jcSpaceAround {
+  justify-content: space-around;
+}
+.jcSpaceEven {
+  justify-content: space-evenly;
+}
+
+.dgrid {
+  display:grid;
+}
+.gridRow1 {
+}
+.gridCol1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+.gridCol2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.gridCol3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.gridCol4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.pad1{
+  padding: 1rem;
+}
+.pad2{
+  padding: 2rem;
+}
+.pad3{
+  padding:3rem;
+}
