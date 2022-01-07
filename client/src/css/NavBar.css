@@ -44,3 +44,66 @@
         rgb(109, 57, 185) 96%, 
         rgb(109, 57, 185) 100%);
 }
+.dNone {
+    display:none;
+}
+
+@media (max-width: 800px) {
+    .menu {
+        display:none;
+    }
+    .mobButtonOff {
+        background: url('../img/whiteBars.svg');
+        background-size: contain;
+        z-index: 10;
+        height: 30px;
+        width: 30px;
+    }
+    .mobButtonOn {
+        background: url('../img/whiteX.svg');
+        background-size: contain;
+        z-index: 10;
+        height: 25px;
+        width: 25px;
+    }
+    .NavMenuOn {
+        position:fixed;
+        right: 0;
+        top: 70px;
+        height: 100%;
+        width: 50%;
+        z-index: 111;
+        background: rgba(0,0,0,0.9);
+        overscroll-behavior:contain;
+        padding: 3rem;
+    }
+    .mobList {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 2rem;
+        line-height: 4rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .mobList li {
+        border-bottom: 2px solid #0098cf;
+    }
+    .topExit {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 70px;
+        z-index: 200;
+    }
+    .leftExit {
+        position: fixed;
+        top:0;
+        left: 0;
+        width: calc(50% - 6rem);
+        height: 100vh;
+        z-index: 200;
+    }
+}

@@ -4,6 +4,8 @@ import { navigate } from '@reach/router'
 import '../css/LogReg.css';
 import axios from 'axios';
 import NavBar from './NavBar';
+import ButtonM from './ButtonM';
+import Footer from './Footer';
 
 const LogReg = props => {
     const [logName, setLogName] = useState('');
@@ -72,8 +74,7 @@ const LogReg = props => {
                                 <label>Password</label>
                                 <input type="text" onChange={(e) => {setLogPass(e.target.value)}} />
                             </div>
-                            
-                            <button id="logInButtonM" onClick={logInHandler}>Log In</button>
+                            <ButtonM text="Log In" navTo="/" onClick={logInHandler}/>
                         </form>
                         <div>{loginStatus}</div>
                     </div>
@@ -92,12 +93,12 @@ const LogReg = props => {
                                 <label>Confirm Password</label>
                                 <input type="text" onChange={(e) => { setNewConfPass(e.target.value) }} />
                             </div>
-
-                            <button id="signUpButtonM" onClick={regHandler}>Sign Up</button>
+                            <ButtonM text="Sign Up" navTo="/" onClick={regHandler}/>
                         </form>
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

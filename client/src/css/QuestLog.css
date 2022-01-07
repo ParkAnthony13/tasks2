@@ -1,0 +1,190 @@
+:root {
+    --one: repeat(1,fr);
+    --inProgress: rgb(253, 210, 109);
+    --complete: rgba(0, 206, 158, 1);
+    --late: rgba(229, 76, 56, 1);
+}
+.questLogContainer {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+
+.log {
+    min-width: 330px;
+}
+
+
+
+
+.dailyList, .missionList {
+    margin: 2px 2px;
+    padding: .5rem;
+}
+.missionLog, .dailyLog {
+    height: 700px;
+}
+
+.dailyLog {
+    background: rgb(214, 214, 214);
+    border-radius: 8px;
+    padding: .5rem;
+    width: 360px;
+}
+.daily {
+    background: rgba(250, 249, 246, 1);
+    height:100px;
+    width: 100%;
+    border-radius: 5px;
+    min-width: 205px;
+    max-width: 764x;
+    margin: .3rem auto;
+    transition-property: outline;
+    transition-duration: 500ms;
+
+    display: flex;
+    justify-content: space-between;
+}
+.daily section:first-child {
+    width: 2rem;
+    min-width: 2rem;
+    height: 100%;
+    border-radius: 5px 0 0 5px;
+    padding: 0;
+    margin: 0;
+}
+.daily article {
+    padding: 1rem;
+    width: 100%;
+}
+.dailyRight {
+    background: rgb(172, 255, 234);
+    width: 50px;
+    border-radius: 0 5px 5px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.dailyRight div:nth-child(1) {
+    display: grid;
+    place-content: center;
+}
+.dailyRight div:nth-child(2) {
+    display: grid;
+    place-content: center;
+}
+.complete {
+    background: var(--complete);
+}
+.inProgress {
+    background: var(--inProgress);
+}
+.late {
+    background: var(--late);
+}
+.daily:hover {
+    outline: 1px solid black;
+}
+.inputTypeA {
+    width: 100%;
+}
+.inputTypeA input{
+    background: rgba(255,255,255,0.8);
+    border: none;
+    width: 100%;
+    border-radius: 5px 0 0 5px;
+    padding: 0.3rem 1rem;
+}
+.inputTypeA button {
+    display: inline-block;
+    border: none;
+    padding: 0.6rem 1rem;
+    margin: 0;
+    text-decoration: none;
+    background: gray;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 550;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0 5px 5px 0;
+}
+button:hover,
+button:focus {
+    background: #17cfe7;
+}
+button:active {
+    transform: scale(0.99);
+}
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+
+
+.missionLog {
+
+    background: rgb(214, 214, 214);
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    /* min-width: 360px;
+    max-width: 360px; */
+    justify-content: center;
+}
+.phase {
+    margin: .3rem;
+}
+.missionPhase {
+    background: rgba(250, 249, 246, 1);
+    height:100px;
+    width: 100%;
+    border-radius: 8px;
+    margin: .3rem auto;
+    transition-property: outline;
+    transition-duration: 500ms;
+
+    display: flex;
+    justify-content: space-between;
+}
+.missionPhase section:first-child {
+    width: 2rem;
+    min-width: 2rem;
+    height: 100%;
+    border-radius: 5px 0 0 5px;
+    padding: 0;
+    margin: 0;
+}
+.missionPhase article {
+    padding: 1rem;
+    width: 100%;
+}
+.dailyRight {
+    background: rgb(172, 255, 234);
+    width: 50px;
+    border-radius: 0 5px 5px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.dailyRight div:nth-child(1) {
+    display: grid;
+    place-content: center;
+}
+.dailyRight div:nth-child(2) {
+    display: grid;
+    place-content: center;
+}
+.daily:hover {
+    outline: 1px solid black;
+}

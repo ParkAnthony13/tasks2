@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   font-family: 'Rubik', sans-serif;
+  box-sizing: border-box;
 }
 
 :root {
@@ -12,11 +13,13 @@
   --five: repeat(5,fr);
 }
 .landing {
+  position: relative;
   height: 100%;
   margin: 0px;
   color: white;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding-bottom: 60px;
+  clip-path: polygon(0 0, 100% 0%, 100% calc(100% - 10%), 0% 100%);
   background-image: 
     linear-gradient(135deg, rgba(19, 176, 223, 0.26) 0%, 
       rgba(19, 176, 223, 0.26) 23%,
@@ -58,7 +61,6 @@
       rgb(97, 77, 194) 96%,
       rgb(109, 57, 185) 96%, 
       rgb(109, 57, 185) 100%);
-
 }
 
 a {
@@ -143,28 +145,24 @@ h1 {
   
   width: 150px;
   height: 3rem;
-  margin: .5rem auto;
+  margin: 2rem auto;
   padding: .3rem;
   border-radius: .4em;
+  border: 1.5px solid black;
 
-  box-shadow: 0px 3px 5px rgba(0,0,0,0.5);
-
-  border:none;
+  transition: border,box-shadow 500ms ease-in-out;
   background: none;
-	background: linear-gradient(-45deg, #00ce9e,#0098cf, #4935ff, #9131ff);
+	background: linear-gradient(-45deg, #13ff75,#026b91, #4935ff, #9131ff);
 	background-size: 400% 100%;
-	animation: gradient 5s ease infinite;
+	animation: gradient 4s ease infinite;
   animation-play-state: paused;
 }
 .action button:hover {
   animation-play-state:running;
+  border: 1.5px solid white;
+  box-shadow: 2px 3px 10px rgba(255, 210, 85, 0.5);
 }
-.action button::after {
-  outline: 2px solid red;
-  z-index: 1;
-  height: 1px;
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-}
+
 
 @keyframes gradient {
 	0% {
@@ -197,8 +195,7 @@ h1 {
 .dgrid {
   display:grid;
 }
-.gridRow1 {
-}
+
 .gridCol1 {
   grid-template-columns: repeat(1, 1fr);
 }

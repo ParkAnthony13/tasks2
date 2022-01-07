@@ -1,9 +1,16 @@
-import react, { useState } from 'react';
+import react, { useState, useContext } from 'react';
 import axios from 'axios';
 import MainContent from '../components/MainContent';
 import Footer from '../components/Footer';
+import GlobalState from '../contexts/GlobalState';
+import MobileNav from './MobileNav';
 
 const Landing = props => {
+    const [state, setState] = useContext(GlobalState);
+
+    const clickHandler = () => {
+        setState({mobButton:!state.mobButton});
+    }
 
     return (
         <div>
@@ -14,24 +21,25 @@ const Landing = props => {
                         <a href='#'></a>
                     </div>
                     <ul>
-                        <li><a href='/'>home</a></li>
-                        <li><a href='/projects'>projects</a></li>
-                        <li><a href='#'>contact</a></li>
-                        <li><a href='/signOn'>sign on</a></li>
+                        <li><a className='menu' href='/'>home</a></li>
+                        <li><a className='menu' href='/questLog'>Quest Log</a></li>
+                        <li><a className='menu' href='#'>contact</a></li>
+                        <li><a className='menu' href='/signOn'>sign on</a></li>
+                        <li className={state.mobButton ? 'mobButtonOff' : 'mobButtonOn'} href='/signOn' onClick={clickHandler}></li>
                     </ul>
                 </nav>
 
                 <div className='container'>
                     <div>
                         <h1>Quest Log Task Manager</h1>
-                        <p>Work solo or with a team, assigning tasks and setting due dates for your projects</p>
                     </div>
                     <div className='action'>
-                        <button>Get Started</button>
+                        <button>Start Questing</button>
                     </div>
                 </div>
             </div>
-            <MainContent/>
+            <MobileNav/>
+            <MainContent className="test"/>
             <Footer/>
         </div>
     )

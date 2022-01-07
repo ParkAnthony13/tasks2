@@ -45,18 +45,17 @@
         rgb(97, 77, 194) 96%,
         rgb(109, 57, 185) 96%, 
         rgb(109, 57, 185) 100%);
-
 }
 
 .Credit {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5,1fr);
-    width: 80vw;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr);
     margin: auto;
+    
 }
 .Credit p {
-    grid-column-start: 5;
-    grid-row-start: 4;
+    grid-column-start: 3;
+    grid-row-start: 2;
     font-weight: 600;
 }
