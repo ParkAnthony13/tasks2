@@ -3,39 +3,84 @@
     --inProgress: rgb(253, 210, 109);
     --complete: rgba(0, 206, 158, 1);
     --late: rgba(229, 76, 56, 1);
-}
-.questLogContainer {
-    display:flex;
-    flex-wrap:wrap;
-}
-
-
-.log {
-    min-width: 330px;
+    --notDone: 1.0;
+    --done: 0.5;
 }
 
 
 
+.comp {
+    opacity: 0.5;
+}
+.inComp {
+    opacity: 1.0;
+}
+.complete {
+    background: var(--complete);
+}
+.inProgress {
+    background: var(--inProgress);
+}
+.late {
+    background: var(--late);
+}
 
-.dailyList, .missionList {
-    margin: 2px 2px;
+
+
+.mainContainer {
     padding: .5rem;
 }
-.missionLog, .dailyLog {
-    height: 700px;
+.mainGrid {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+    align-items: flex-start;
 }
 
-.dailyLog {
-    background: rgb(214, 214, 214);
-    border-radius: 8px;
-    padding: .5rem;
-    width: 360px;
+
+
+.Today, .Proj, .Dailies {
+    margin: 1rem;
+    height: auto;
 }
+.Today {
+    grid-column: 4 / span 1;
+}
+.Proj {
+    grid-column: 2 / span 2;
+}
+.Dailies {
+    grid-column: 1 / span 1;
+}
+.split {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+
+
+.Proj .split .lists:nth-child(1) {
+    grid-column: 1 / span 1;
+}
+.Proj .split .lists:nth-child(2) {
+    grid-column: 2 / span 1;
+}
+.Dailies .noSplit, .Today .noSplit {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.Dailies .lists, .Today .lists {
+    grid-column: 1 / span 1;
+}
+
+
+
 .daily {
     background: rgba(250, 249, 246, 1);
     height:100px;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 3px;
     min-width: 205px;
     max-width: 764x;
     margin: .3rem auto;
@@ -49,9 +94,12 @@
     width: 2rem;
     min-width: 2rem;
     height: 100%;
-    border-radius: 5px 0 0 5px;
+    border-radius: 3px 0 0 3px;
     padding: 0;
     margin: 0;
+}
+.daily section:nth-child(2) {
+    border-radius: 0 3px 3px 0;
 }
 .daily article {
     padding: 1rem;
@@ -60,7 +108,7 @@
 .dailyRight {
     background: rgb(172, 255, 234);
     width: 50px;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 3px 3px 0;
 
     display: flex;
     flex-direction: column;
@@ -70,52 +118,31 @@
 .dailyRight div:nth-child(1) {
     display: grid;
     place-content: center;
+    height: 100%;
+    width: 100%;
 }
 .dailyRight div:nth-child(2) {
     display: grid;
     place-content: center;
+    height: 100%;
+    width: 100%;
 }
-.complete {
-    background: var(--complete);
+.dailyRight div:nth-child(1):hover {
+    outline: 1px solid rgba(0,0,0,0.25);
+    border-radius: 0 3px 0 0;
+    
+    background: rgb(77, 235, 195)
 }
-.inProgress {
-    background: var(--inProgress);
-}
-.late {
-    background: var(--late);
+.dailyRight div:nth-child(2):hover {
+    outline: 1px solid rgba(0,0,0,0.25);
+    border-radius: 0 0 3px 0;
+    
+    background: rgb(77, 235, 195)
 }
 .daily:hover {
     outline: 1px solid black;
 }
-.inputTypeA {
-    width: 100%;
-}
-.inputTypeA input{
-    background: rgba(255,255,255,0.8);
-    border: none;
-    width: 100%;
-    border-radius: 5px 0 0 5px;
-    padding: 0.3rem 1rem;
-}
-.inputTypeA button {
-    display: inline-block;
-    border: none;
-    padding: 0.6rem 1rem;
-    margin: 0;
-    text-decoration: none;
-    background: gray;
-    color: #ffffff;
-    font-family: sans-serif;
-    font-size: 1rem;
-    font-weight: 550;
-    cursor: pointer;
-    text-align: center;
-    transition: background 250ms ease-in-out, 
-                transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border-radius: 0 5px 5px 0;
-}
+
 button:hover,
 button:focus {
     background: #17cfe7;
@@ -130,61 +157,113 @@ button:focus {
 
 
 
-.missionLog {
-
-    background: rgb(214, 214, 214);
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    /* min-width: 360px;
-    max-width: 360px; */
-    justify-content: center;
-}
-.phase {
-    margin: .3rem;
-}
-.missionPhase {
-    background: rgba(250, 249, 246, 1);
-    height:100px;
-    width: 100%;
-    border-radius: 8px;
-    margin: .3rem auto;
-    transition-property: outline;
-    transition-duration: 500ms;
-
-    display: flex;
-    justify-content: space-between;
-}
-.missionPhase section:first-child {
-    width: 2rem;
-    min-width: 2rem;
-    height: 100%;
-    border-radius: 5px 0 0 5px;
-    padding: 0;
-    margin: 0;
-}
-.missionPhase article {
+.lists {
     padding: 1rem;
-    width: 100%;
-}
-.dailyRight {
-    background: rgb(172, 255, 234);
-    width: 50px;
-    border-radius: 0 5px 5px 0;
-
+    background: gainsboro;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    min-height: 800px;
 }
-.dailyRight div:nth-child(1) {
-    display: grid;
-    place-content: center;
+
+
+
+
+
+
+.inputTypeB {
+    width: 100%;
+    display:flex;
+    margin-bottom: 1rem;
+    height: 40px;
 }
-.dailyRight div:nth-child(2) {
-    display: grid;
-    place-content: center;
+.inputTypeB input{
+    background: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 3px 0 0 3px;
+    width: 100%;
+    padding: 0.3rem 1rem;
 }
-.daily:hover {
-    outline: 1px solid black;
+.inputTypeB button {
+    display: inline-block;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    padding: 0.6rem 1rem;
+    margin: 0;
+    text-decoration: none;
+    background: gray;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 550;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+@media (min-width: 766px) and (max-width:1111px) {
+    .mainGrid {
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+        margin-bottom: auto;
+    }
+    .Today, .Proj, .Dailies {
+        margin: 1rem;
+        height: auto;
+    }
+    .Today {
+        grid-column: 1 / span 1;
+        grid-row: 1;
+    }
+    .Proj {
+        grid-column: 1 / span 2;
+    }
+    .Dailies {
+        grid-column: 2 / span 1;
+        grid-row: 1;
+    }
+}
+@media (max-width:765px) {
+    .mainGrid {
+        display:grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, auto);
+        align-items: flex-start;
+    }
+    .Today, .Proj, .Dailies {
+        margin: 1rem;
+        height: auto;
+    }
+    .Today {
+        grid-column: 1 / span 1;
+        grid-row: 1;
+    }
+    .Proj {
+        grid-column: 1 / span 1;
+        grid-row: 3;
+    }
+    .Dailies {
+        grid-column: 1 / span 1;
+        grid-row: 2;
+    }
+
+    .split {
+        display:grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .Proj .split .lists:nth-child(1) {
+        grid-column: 1 / span 1;
+        grid-row: 1;
+    }
+    .Proj .split .lists:nth-child(2) {
+        grid-column: 1 / span 1;
+        grid-row: 2;
+    }
 }

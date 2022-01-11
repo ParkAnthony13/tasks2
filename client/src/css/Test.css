@@ -1,4 +1,101 @@
+.testContainer {
+    display:grid;
+    align-items: center;
+    place-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.taskCard {
+    background: rgba(250, 249, 246, 1);
 
+    height:100px;
+    width: 100%;
+    min-width: 205px;
+    max-width: 764x;
+
+    border-radius: 3px;
+    margin: .3rem auto;
+
+    transition-property: outline;
+    transition-duration: 500ms;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.dailyLeft {
+    width: 2rem;
+    min-width: 2rem;
+    height: 100%;
+    border-radius: 3px 0 0 3px;
+    padding: 0;
+    margin: 0;
+}
+/* .taskCard section:nth-child(2) {
+    border-radius: 0 3px 3px 0;
+} */
+.taskCard article {
+    padding: 1rem;
+    width: 100%;
+}
+.dailyRight {
+    background: rgb(172, 255, 234);
+    width: 50px;
+    border-radius: 0 3px 3px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.dailyRight div:nth-child(1) {
+    display: grid;
+    place-content: center;
+    height: 100%;
+    width: 100%;
+}
+.dailyRight div:nth-child(2) {
+    display: grid;
+    place-content: center;
+    height: 100%;
+    width: 100%;
+}
+.complete {
+    background: var(--complete);
+}
+.inProgress {
+    background: var(--inProgress);
+}
+.late {
+    background: var(--late);
+}
+.daily:hover {
+    outline: 1px solid black;
+}
+
+
+
+
+.resize {
+    position: relative;
+    top:0;
+    left:0;
+
+}
+.resizeTab {
+    content:"";
+    position: absolute;
+    top:0;
+    left:0;
+    background: red;
+    height: 10px;
+    width: 10px;
+    border-radius: 3px 0 0 0;
+}
+
+
+/*  Previous Test.css for current Quest Log 1/10/2022   */
+/* 
 .mainContainer {
     padding: .5rem;
 }
@@ -29,7 +126,6 @@
 
 .Proj .split .lists:nth-child(1) {
     grid-column: 1 / span 1;
-    background:honeydew;
 }
 .Proj .split .lists:nth-child(2) {
     grid-column: 2 / span 1;
@@ -58,13 +154,13 @@
     background: rgba(255,255,255,0.8);
     border: none;
     width: 100%;
-    /* border-radius: 10px 0 0 10px; */
+    border-radius: 10px 0 0 10px;
     padding: 0.3rem 1rem;
 }
 .inputTypeB button {
     display: inline-block;
     border: none;
-    /* border-radius: 0 10px 10px 0; */
+    border-radius: 0 10px 10px 0;
     padding: 0.6rem 1rem;
     margin: 0;
     text-decoration: none;
@@ -138,10 +234,9 @@
     .Proj .split .lists:nth-child(1) {
         grid-column: 1 / span 1;
         grid-row: 1;
-        background:honeydew;
     }
     .Proj .split .lists:nth-child(2) {
         grid-column: 1 / span 1;
         grid-row: 2;
     }
-}
+} */

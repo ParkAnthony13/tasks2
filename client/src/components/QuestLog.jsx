@@ -1,120 +1,143 @@
-import react, { useState, useContext } from 'react';
+import react, { useContext, useState } from 'react';
 import '../css/QuestLog.css';
+import NavBar from './NavBar';
 import GlobalState from '../contexts/GlobalState';
-import NavBar from '../components/NavBar';
+
+
 
 const QuestLog = props => {
     const [state, setState] = useContext(GlobalState);
+    const [bg,setBg] = useState("inComp");
+
+
+    const checkHandler = () => {
+        if (bg == "comp") {
+            setBg("inComp");
+        } else if (bg == "inComp") {
+            setBg("comp");
+        }
+    }
 
     return(
-        <div className='questLog'>
+        <div>
             <NavBar/>
-            <div className='questLogContainer'>
-                <div className='dailyList'>
-                    <h3>Dailies</h3>
-                    <div className='dailyLog'>
-                        <div className='inputTypeA'>
-                            <input type="text" />
-                            <button>ADD</button>
-                        </div>
-                        <div className='log'>
-                            <div className='daily'>
-                                <section className='complete'></section>
-                                <article>text</article>
-                                <section className='dailyRight'>
-                                    <div>...</div>
-                                    <div>x</div>
-                                </section>
-                            </div>
-
-                            <div className='daily'>
-                                <section className='late'></section>
-                                <article>text</article>
-                                <section className='dailyRight'>
-                                    <div>...</div>
-                                    <div>x</div>
-                                </section>
-                            </div>
-                            <div className='daily'>
-                                <section className='inProgress'></section>
-                                <article>text</article>
-                                <section className='dailyRight'>
-                                    <div>...</div>
-                                    <div>x</div>
-                                </section>
+            <div className='mainContainer'>
+                <div className='mainGrid'>
+                    <div className='Dailies'>
+                        <h3>Dailies</h3>
+                        <div className='noSplit'>
+                            <div className='lists'>
+                                <div className='inputTypeB'>
+                                    <input type="text" />
+                                    <button>ADD</button>
+                                </div>
+                                <div>
+                                    <div className={`daily ${bg}`}>
+                                        <section className='inProgress'></section>
+                                        <article>text</article>
+                                        <section className='dailyRight'>
+                                            <div>...</div>
+                                            <div onClick={checkHandler}>x</div>
+                                        </section>
+                                    </div>
+                                    <div className='daily'>
+                                        <section className='complete'></section>
+                                        <article>text</article>
+                                        <section className='dailyRight'>
+                                            <div>...</div>
+                                            <div>x</div>
+                                        </section>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                </div>
-                <div className='missionList'>
-                    <h3>Missions</h3>
-                    <div className='missionLog'>
-                        <div className='phase'>
-                            <h3>Phase 1</h3>
-                            <div className='inputTypeA'>
-                                <input type="text"/>
-                                <button>ADD</button>
+                    <div className='Proj'>
+                        <h3>Projects</h3>
+                        <div className='split'>
+                            <div className='lists'>
+                                <div className='inputTypeB'>
+                                    <input type="text" />
+                                    <button>ADD</button>
+                                </div>
+                                <div>
+                                    <div className='daily'>
+                                        <section className='inProgress'></section>
+                                        <article>text</article>
+                                        <section className='dailyRight'>
+                                            <div>...</div>
+                                            <div>x</div>
+                                        </section>
+                                    </div>
+                                    <div className='daily'>
+                                        <section className='late'></section>
+                                        <article>text</article>
+                                        <section className='dailyRight'>
+                                            <div>...</div>
+                                            <div>x</div>
+                                        </section>
+                                    </div>
+                                </div>
                             </div>
-                            <div className='log'>
-                                <div className='missionPhase'>
-                                    <section className='complete'></section>
-                                    <article>text</article>
-                                    <section className='dailyRight'>
-                                        <div>...</div>
-                                        <div>x</div>
-                                    </section>
+                            <div className='lists'>
+                                <div className='inputTypeB'>
+                                    <input type="text" />
+                                    <button>ADD</button>
                                 </div>
-
-                                <div className='missionPhase'>
-                                    <section className='late'></section>
-                                    <article>text</article>
-                                    <section className='dailyRight'>
-                                        <div>...</div>
-                                        <div>x</div>
-                                    </section>
-                                </div>
-                                <div className='missionPhase'>
-                                    <section className='inProgress'></section>
-                                    <article>text</article>
-                                    <section className='dailyRight'>
-                                        <div>...</div>
-                                        <div>x</div>
-                                    </section>
+                                <div>
+                                    <div className='daily'>
+                                        <section className='complete'></section>
+                                        <article>text</article>
+                                        <section className='dailyRight'>
+                                            <div>...</div>
+                                            <div>x</div>
+                                        </section>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className='phase'>
-                            <h3>Phase 2</h3>
-                            <div className='inputTypeA'>
-                                <input type="text"/>
-                                <button>ADD</button>
-                            </div>
-                            <div className='log'>
-                                <div className='missionPhase'>
-                                    <section className='complete'></section>
-                                    <article>text</article>
-                                    <section className='dailyRight'>
-                                        <div>...</div>
-                                        <div>x</div>
-                                    </section>
+                    </div>
+                    <div className='Today'>
+                        <h3>Today's</h3>
+                        <div className='noSplit'>
+                            <div className='lists'>
+                                <div className='inputTypeB'>
+                                    <input type="text" />
+                                    <button>ADD</button>
                                 </div>
-
-                                <div className='missionPhase'>
-                                    <section className='late'></section>
-                                    <article>text</article>
-                                    <section className='dailyRight'>
-                                        <div>...</div>
-                                        <div>x</div>
-                                    </section>
-                                </div>
-                                <div className='missionPhase'>
-                                    <section className='inProgress'></section>
-                                    <article>text</article>
-                                    <section className='dailyRight'>
-                                        <div>...</div>
-                                        <div>x</div>
-                                    </section>
+                                <div>
+                                    <div className='daily'>
+                                        <section className='complete'></section>
+                                        <article>text</article>
+                                        <section className='dailyRight'>
+                                            <div>...</div>
+                                            <div>x</div>
+                                        </section>
+                                    </div>
+                                    <div className='daily'>
+                                        <section className='complete'></section>
+                                        <article>text</article>
+                                        <section className='dailyRight'>
+                                            <div>...</div>
+                                            <div>x</div>
+                                        </section>
+                                    </div>
+                                    <div className='daily'>
+                                        <section className='inProgress'></section>
+                                        <article>text</article>
+                                        <section className='dailyRight'>
+                                            <div>...</div>
+                                            <div>x</div>
+                                        </section>
+                                    </div>
+                                    <div className='daily'>
+                                        <section className='late'></section>
+                                        <article>text</article>
+                                        <section className='dailyRight'>
+                                            <div>...</div>
+                                            <div>x</div>
+                                        </section>
+                                    </div>
                                 </div>
                             </div>
                         </div>

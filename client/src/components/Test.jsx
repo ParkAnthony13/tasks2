@@ -1,95 +1,45 @@
-import react, { useContext } from 'react';
+import react, { useEffect, useState } from 'react';
 import '../css/Test.css';
-import NavBar from '../components/NavBar';
-import GlobalState from '../contexts/GlobalState';
 
 
 
 const Test = props => {
-    const [state, setState] = useContext(GlobalState);
+    const [x, setX] = useState(400);
+    const [y,setY] = useState(110);
+    const [startx, setstartx] = useState();
+    const [starty, setstarty] = useState();
+    const [finalX, setFinalX] = useState('');
+    const [finalY, setFinalY] = useState('');
+
+    useEffect(()=>{
+        setFinalX(x + 'px');
+        setFinalY(y + 'px');
+    },[x,y])
+    const resizeX = () => {
+
+    }
+    const test = (event) => {
+        setstartx(event.clientX - event.target.offsetLeft)
+        console.log(`Horizontal: ${event.clientX - event.target.offsetLeft}`);
+        console.log(`Vertical: ${event.clientY - event.target.offsetTop}`)
+    }
 
 
     return(
-        <div>
-            <NavBar/>
-            <div className='mainContainer'>
-                <div className='mainGrid'>
-                    <div className='Dailies'>
-                        <h3>Dailies</h3>
-                        <div className='noSplit'>
-                            <div className='lists'>
-                                <div className='inputTypeB'>
-                                    <input type="text" />
-                                    <button>ADD</button>
-                                </div>
-                                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate laboriosam nemo necessitatibus laborum architecto sapiente, cum laudantium accusantium est iure. Expedita sequi esse, impedit voluptas reprehenderit amet fugiat numquam perspiciatis.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='Proj'>
-                        <h3>Projects</h3>
-                        <div className='split'>
-                            <div className='lists'>
-                                <div className='inputTypeB'>
-                                    <input type="text" />
-                                    <button>ADD</button>
-                                </div>
-                                <div>
-                                    <div className='daily'>
-                                        <section className='complete'></section>
-                                        <article>text</article>
-                                        <section className='dailyRight'>
-                                            <div>...</div>
-                                            <div>x</div>
-                                        </section>
-                                    </div>
-                                    <div className='daily'>
-                                        <section className='complete'></section>
-                                        <article>text</article>
-                                        <section className='dailyRight'>
-                                            <div>...</div>
-                                            <div>x</div>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='lists'>
-                                <div className='inputTypeB'>
-                                    <input type="text" />
-                                    <button>ADD</button>
-                                </div>
-                                <div>
-                                    <div className='daily'>
-                                        <section className='complete'></section>
-                                        <article>text</article>
-                                        <section className='dailyRight'>
-                                            <div>...</div>
-                                            <div>x</div>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='Today'>
-                        <h3>Today's</h3>
-                        <div className='noSplit'>
-                            <div className='lists'>
-                                <div className='inputTypeB'>
-                                    <input type="text" />
-                                    <button>ADD</button>
-                                </div>
-                                <div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div className='testContainer'>
+            <div className='taskCard' style={{width:`${finalX}`,height:`${finalY}`}}>
+                <div className='resize'>
+                    <div className='resizeTab' onMouseDown={test}/>
                 </div>
+                <section className='inProgress dailyLeft'></section>
+                <article>text</article>
+                <section className='dailyRight'>
+                    <div>...</div>
+                    <div>x</div>
+                </section>
             </div>
         </div>
     )
 }
-
 
 export default Test;
