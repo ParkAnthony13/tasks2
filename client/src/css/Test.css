@@ -30,6 +30,10 @@
     border-radius: 3px 0 0 3px;
     padding: 0;
     margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* .taskCard section:nth-child(2) {
     border-radius: 0 3px 3px 0;
@@ -74,26 +78,34 @@
 }
 
 
+/*  
+    script == checkContainer
+    input == checkbox
+    geekmark == checkTypeA
+*/
 
 
-.resize {
+.checkContainer {    /* script */
     position: relative;
-    top:0;
-    left:0;
-
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
 }
-.resizeTab {
-    content:"";
+.checkbox[type=checkbox] {   /* input */
+    visibility:hidden;
+}
+.checkTypeA { /* geekmark */
     position: absolute;
-    top:0;
-    left:0;
-    background: red;
-    height: 10px;
-    width: 10px;
-    border-radius: 3px 0 0 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(194, 194, 194);
 }
-
-
+.checkContainer:hover .checkbox ~ .checkTypeA {
+    background-color:yellow;
+}
 /*  Previous Test.css for current Quest Log 1/10/2022   */
 /* 
 .mainContainer {
