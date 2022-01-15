@@ -33,7 +33,7 @@
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 /* .taskCard section:nth-child(2) {
     border-radius: 0 3px 3px 0;
@@ -84,28 +84,54 @@
     geekmark == checkTypeA
 */
 
-
-.checkContainer {    /* script */
+/*
+.checkContainer {    /* script *
     position: relative;
     display:flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     cursor: pointer;
-    height: 25px;
-    width: 25px;
 }
-.checkbox[type=checkbox] {   /* input */
+.checkbox[type=checkbox] {   /* input *
     visibility:hidden;
+
 }
-.checkTypeA { /* geekmark */
+
+.checkTypeA { /* geekmark *
     position: absolute;
-    height: 25px;
-    width: 25px;
-    background-color: rgb(194, 194, 194);
+    height: 24px;
+    width: 24px;
+    background-color: rgb(223, 223, 223);
 }
 .checkContainer:hover .checkbox ~ .checkTypeA {
-    background-color:yellow;
+    background-color:rgb(236, 236, 236);
 }
+
+.checkContainer checkbox:active ~ .checkTypeA {
+    background-color: red;
+}
+
+.checkContainer checkbox:checked ~ .checkTypeA {
+    background-color: green;
+}
+
+.checkTypeA:after {
+    content:"";
+    position: absolute;
+    display:none;
+}
+.checkContainer checkbox:checked ~ .checkTypeA:after {
+    display:block;
+}
+.checkContainer .checkTypeA:after {
+    left: 6px;
+    bottom: 5px;
+    width: 6px;
+    height: 6px;
+    border: solid white;
+    border-width: 4px 4px 4px 4px;
+}
+*/
 /*  Previous Test.css for current Quest Log 1/10/2022   */
 /* 
 .mainContainer {
