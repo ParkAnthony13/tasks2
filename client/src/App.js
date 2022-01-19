@@ -6,7 +6,6 @@ import LogReg from './components/LogReg';
 import GlobalState from './contexts/GlobalState';
 import './App.css';
 import QuestLog from './components/QuestLog';
-import Test from './components/Test';
 
 function App() {
   const [state, setState] = useState({
@@ -21,7 +20,6 @@ function App() {
           <Projects path='/projects'/>
           <LogReg path='/signOn'/>
           <QuestLog path='/questLog'/>
-          <Test path='/test'/>
         </Router>
       </div>
     </GlobalState.Provider>

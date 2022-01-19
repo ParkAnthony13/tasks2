@@ -1,18 +1,20 @@
-.testContainer {
-    display:grid;
+.taskContainer {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    place-content: center;
-    height: 100vh;
-    width: 100vw;
+    flex-direction: column;
+    /* display:grid;
+    align-items: center;
+    place-content: center; */
 }
 .taskCard {
     background: rgba(250, 249, 246, 1);
-
-    height:100px;
-    width: 100%;
-    min-width: 205px;
+    min-height: 100px;
     max-width: 764x;
-
+    min-width: 205px;
+    width: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
     border-radius: 3px;
     margin: .3rem auto;
 
@@ -24,16 +26,15 @@
 }
 
 .dailyLeft {
+    position: relative;
     width: 2rem;
     min-width: 2rem;
-    height: 100%;
     border-radius: 3px 0 0 3px;
     padding: 0;
     margin: 0;
 
     display: flex;
     justify-content: center;
-    align-items: flex-start;
 }
 /* .taskCard section:nth-child(2) {
     border-radius: 0 3px 3px 0;
@@ -41,6 +42,32 @@
 .taskCard article {
     padding: 1rem;
     width: 100%;
+}
+.infoBar {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: .8rem;
+    color: rgba(167, 167, 167, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.infoBarSmall {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: .8rem;
+    color: rgba(167, 167, 167, 0.8);
+}
+.infoLeft {
+    margin-right: .7rem;
+}
+.infoRight {
+    margin-left: .7rem;
+    position: relative;
+    top:-0.1rem;
 }
 .dailyRight {
     background: rgb(172, 255, 234);
