@@ -55,9 +55,9 @@
 } */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
-    position: absolute;
+    /* position: absolute;
     left: 0;
-    opacity: 0.01;
+    opacity: 0.01; */
 }
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {

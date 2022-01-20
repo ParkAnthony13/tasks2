@@ -11,6 +11,8 @@ const QuestLog = props => {
     const [date,setDate] = useState(new Date());
     const [calday,setCalday] = useState(`${date.getMonth().toString()}-${date.getDate().toString()}-${date.getFullYear().toString()}`);
     const [today,setToday] = useState(date.getDay().toString());
+
+    const [tester, setTester] = useState({});
     const test = [
         {
             title:'This is due laaayyyter today',
@@ -18,7 +20,8 @@ const QuestLog = props => {
             dueDate: calday,
             caldayToday: calday,
             day: today,
-            description:'test test test test test test'
+            description:'test test test test test test',
+            check:true
         },
         {
             title:'test2',
@@ -26,17 +29,22 @@ const QuestLog = props => {
             dueDate: calday,
             caldayToday: calday,
             day: today,
-            description:'test test test test test test'
+            description:'test test test test test test',
+            check:false
         }
     ];
-
-    const checkHandler = () => {
-        if (bg == "comp") {
-            setBg("inComp");
-        } else if (bg == "inComp") {
-            setBg("comp");
-        }
+    const test2 = (idx) => {
+        // setTester({...test});
+        console.log(idx);
+        console.log(tester)
     }
+    // const checkHandler = () => {
+    //     if (bg == "comp") {
+    //         setBg("inComp");
+    //     } else if (bg == "inComp") {
+    //         setBg("comp");
+    //     }
+    // }
 
 
     return(
@@ -53,14 +61,6 @@ const QuestLog = props => {
                                     <button>ADD</button>
                                 </div>
                                 <div>
-                                    <div className={`daily ${bg}`}>
-                                        <section className='inProgress'></section>
-                                        <article>text</article>
-                                        <section className='dailyRight'>
-                                            <div>...</div>
-                                            <div onClick={checkHandler}>x</div>
-                                        </section>
-                                    </div>
                                     {test.map((item, idx) => {
                                         return(
                                             <TaskCard key={idx}
@@ -69,6 +69,7 @@ const QuestLog = props => {
                                                 dueDate={item.dueDate}
                                                 day={item.day}
                                                 description={item.description}
+                                                check={item.check}
                                             />
                                         )
                                     })}

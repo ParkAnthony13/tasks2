@@ -51,8 +51,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
-.infoBarSmall {
+/* .infoBarSmall {
     display:flex;
     flex-wrap: wrap;
     align-items: center;
@@ -60,7 +61,7 @@
     font-weight: 700;
     font-size: .8rem;
     color: rgba(167, 167, 167, 0.8);
-}
+} */
 .infoLeft {
     margin-right: .7rem;
 }

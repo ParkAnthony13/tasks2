@@ -6,39 +6,40 @@ import DayInWeek from './minorComponents/DayInWeek';
 
 
 const TaskCard = props => {
-    const {title, status, dueDate, caldayToday, day, description} = props;
+    const {
+        title, 
+        status, 
+        dueDate, 
+        caldayToday, 
+        day, 
+        description,
+        check,
+        key,
+    } = props;
 
-
-
-    const [checked, setChecked] = useState(false);
-    const [checked2, setChecked2] = useState(false);
-    const [infoCSS,setInfoCSS] = useState('infoBar');
+    const [checker, setChecker] = useState(check);
+    
     const checkHandler = () => {
-        setChecked(!checked);
-        console.log(checked);
+        setChecker(!checker);
     }
 
 
-    const checkHandler2 = () => {
-        setChecked(!checked2);
-        console.log(checked2);
-    }
+    const [infoCSS,setInfoCSS] = useState('infoBar');
+    // const ref = useRef(null);
+    // window.addEventListener('resize',function() {
+    //     if (("width", ref.current.offsetWidth) < 333) {
+    //         setInfoCSS('infoBarSmall');
+    //     }
+    //     // else {
+    //     //     setInfoCSS('infoBar');
+    //     // }
+    // })
 
-    const ref = useRef(null);
-    window.addEventListener('resize',function() {
-        if (("width", ref.current.offsetWidth) < 333) {
-            setInfoCSS('infoBarSmall');
-        }
-        else {
-            setInfoCSS('infoBar');
-        }
-    })
+    // <CheckBox value={check} changeValue={setChecker} onChange={checkHandler}/>
 
-
-
-    useEffect(() => {
-        console.log("width", ref.current.offsetWidth);
-    },[]);
+    // useEffect(() => {
+    //     console.log("width", ref.current.offsetWidth);
+    // },[]);
 
 
 
@@ -47,10 +48,13 @@ const TaskCard = props => {
         <div className='taskContainer'>
             <div className='taskCard'>
                 <section className='inProgress dailyLeft'>
-                    <CheckBox value={checked} changeValue={setChecked} onChange={checkHandler}/>
+                    <form className='checkContainer' action="#">
+                        <input type="checkbox" value='completedness' checked={checker} onChange={checkHandler}id="test1"/>
+                        <label for="test1"></label>
+                    </form>
                 </section>
                 <article className='infoContainer'>
-                    <div className={infoCSS} ref={ref}>
+                    <div className={infoCSS}>
                         <div className="infoLeft">
                             <p>{title}</p>
                         </div>
