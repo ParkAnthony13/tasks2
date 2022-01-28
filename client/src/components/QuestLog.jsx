@@ -1,4 +1,4 @@
-import react, { useContext, useState } from 'react';
+import react, { useContext, useEffect, useState } from 'react';
 import '../css/QuestLog.css';
 import NavBar from './NavBar';
 import GlobalState from '../contexts/GlobalState';
@@ -7,16 +7,16 @@ import TaskCard from './TaskCard';
 
 const QuestLog = props => {
     const [state, setState] = useContext(GlobalState);
-    const [bg,setBg] = useState("inComp");
     const [date,setDate] = useState(new Date());
     const [calday,setCalday] = useState(`${date.getMonth().toString()}-${date.getDate().toString()}-${date.getFullYear().toString()}`);
     const [today,setToday] = useState(date.getDay().toString());
 
-    const [tester, setTester] = useState({});
-    const test = [
+
+
+    const listDailies = [
         {
+            id:1,
             title:'This is due laaayyyter today',
-            status:false,
             dueDate: calday,
             caldayToday: calday,
             day: today,
@@ -24,8 +24,8 @@ const QuestLog = props => {
             check:true
         },
         {
+            id:2,
             title:'test2',
-            status:true,
             dueDate: calday,
             caldayToday: calday,
             day: today,
@@ -33,19 +33,136 @@ const QuestLog = props => {
             check:false
         }
     ];
-    const test2 = (idx) => {
-        // setTester({...test});
-        console.log(idx);
-        console.log(tester)
-    }
-    // const checkHandler = () => {
-    //     if (bg == "comp") {
-    //         setBg("inComp");
-    //     } else if (bg == "inComp") {
-    //         setBg("comp");
-    //     }
-    // }
+    const [dailyState, setDailyState] = useState(listDailies);
+    const listProjects = [
+        {
+            id:1,
+            title:'Project 1',
+            dueDate: calday,
+            caldayToday: calday,
+            day: today,
+            description:'Task manager',
+            check:true
+        },
+        {
+            id:2,
+            title:'Project 1',
+            dueDate: calday,
+            caldayToday: calday,
+            day: today,
+            description:'Map markers',
+            check:true
+        }
+    ]
+    const [projectState, setProjectState] = useState(listProjects);
+    const taskList = [
+        {
+            id:1,
+            title:'Taskbar component',
+            dueDate: calday,
+            caldayToday: calday,
+            day: today,
+            description:'finish designing component so that it can render based on database',
+            check:true
+        },
+        {
+            id:1,
+            title:'Tasks2 MySql',
+            dueDate: calday,
+            caldayToday: calday,
+            day: today,
+            description:'reflect schema to front end',
+            check:true
+        },
+        {
+            id:2,
+            title:'Maps front end',
+            dueDate: calday,
+            caldayToday: calday,
+            day: today,
+            description:'design front end for drawing two lines on map',
+            check:true
+        },
+        {
+            id:2,
+            title:'kml file to json',
+            dueDate: calday,
+            caldayToday: calday,
+            day: today,
+            description:'Figure out how to export and save kml google maps data for app to utilize',
+            check:true
+        },
+        {
+            id:2,
+            title:'json to map',
+            dueDate: calday,
+            caldayToday: calday,
+            day: today,
+            description:'take json data and map it in app.',
+            check:true
+        }
+    ]
+    const [projectTasks, setProjectTasks] = useState(taskList);
+    const [currentProject, setCurrentProject] = useState(0);
 
+
+    const [dailies,setDailies] = useState([]);
+    const [projects,setProjects] = useState([]);
+
+
+
+
+
+
+
+
+    const saveTaskBar1 = () => {
+        <div>
+            {dailies.map((item, idx) => {
+                return(
+                    <TaskCard 
+                        className={item.check?'':'opacity'}
+                        key={idx}
+                        title={item.title}
+                        dueDate={item.dueDate}
+                        day={item.day}
+                        description={item.description}
+                        check={item.check}
+                    />
+                )
+            })}
+        </div>
+    }
+    const saveTaskBar2 = () => {
+        <div>
+            
+        </div>
+    }
+
+
+    useEffect(()=> {
+        let dailyData = [
+            {
+                id:1,
+                title:'This is due laaayyyter today',
+                dueDate: calday,
+                caldayToday: calday,
+                day: today,
+                description:'test test test test test test',
+                check:true
+            },
+            {
+                id:2,
+                title:'test2',
+                dueDate: calday,
+                caldayToday: calday,
+                day: today,
+                description:'test test test test test test',
+                check:false
+            }
+        ];
+        setDailies(dailyData)
+    },[])
 
     return(
         <div>
@@ -61,11 +178,12 @@ const QuestLog = props => {
                                     <button>ADD</button>
                                 </div>
                                 <div>
-                                    {test.map((item, idx) => {
+                                    {dailies.map((item, idx) => {
                                         return(
-                                            <TaskCard key={idx}
+                                            <TaskCard 
+                                                className={item.check?'':'opacity'}
+                                                key={idx}
                                                 title={item.title}
-                                                status={item.status}
                                                 dueDate={item.dueDate}
                                                 day={item.day}
                                                 description={item.description}

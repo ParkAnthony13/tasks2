@@ -24,6 +24,9 @@
     display: flex;
     justify-content: space-between;
 }
+.opacity {
+    opacity: .5;
+}
 
 .dailyLeft {
     position: relative;
@@ -49,7 +52,7 @@
     font-size: .8rem;
     color: rgba(167, 167, 167, 0.8);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
 }
