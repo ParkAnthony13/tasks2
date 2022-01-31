@@ -106,6 +106,13 @@ const QuestLog = props => {
     const [currentProject, setCurrentProject] = useState(0);
 
 
+    const dailyChecks = (pos) => {
+        const temp = dailyState.map((item, idx) => {
+            {idx === pos ? item.check = !item.check: item.check = item.check}
+        })
+        setDailyState(temp);
+    }
+
     const [dailies,setDailies] = useState([]);
     const [projects,setProjects] = useState([]);
 
