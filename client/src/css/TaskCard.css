@@ -51,8 +51,9 @@
     font-weight: 700;
     font-size: .8rem;
     color: rgba(167, 167, 167, 0.8);
+    position: relative;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -66,12 +67,17 @@
     color: rgba(167, 167, 167, 0.8);
 } */
 .infoLeft {
+    position: relative;
+    left: 0;
     margin-right: .7rem;
+
 }
+
 .infoRight {
     margin-left: .7rem;
     position: relative;
-    top:-0.1rem;
+    top:-.5;
+    right:0;
 }
 .dailyRight {
     background: rgb(172, 255, 234);

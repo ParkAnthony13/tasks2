@@ -5,7 +5,7 @@ import DayInWeek from './minorComponents/DayInWeek';
 
 
 
-const TaskCardB = props => {
+const ProjectCard = props => {
     const {
         title,
         dueDate, 
@@ -15,7 +15,8 @@ const TaskCardB = props => {
         check,
         value,
         checked,
-        onChange
+        onChange,
+        changeProject
     } = props;
 
     const [checker, setChecker] = useState(check);
@@ -47,16 +48,15 @@ const TaskCardB = props => {
                         <label></label>
                     </form>
                 </section>
-                <article className='infoContainer'>
+                <article className='infoContainer' onClick={changeProject}>
                     <div className={infoCSS}>
                         <div className="infoLeft">
                             <p>{title}</p>
-                            <p>{dueDate}</p>
                         </div>
                         <div className='date'>
+                            <p>{dueDate}</p>
                         </div>
                         <div className="infoRight">
-                            <DayInWeek/>
                         </div>
                     </div>
                     <div className='description'>
@@ -72,4 +72,4 @@ const TaskCardB = props => {
     )
 }
 
-export default TaskCardB;
+export default ProjectCard;

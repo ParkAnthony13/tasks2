@@ -13,7 +13,6 @@ const TaskCard = props => {
         day, 
         description,
         check,
-        key,
         test
     } = props;
 
@@ -43,7 +42,7 @@ const TaskCard = props => {
                 <section className='inProgress dailyLeft'>
                     <form className='checkContainer' action="#">
                         <input type="checkbox" value='completedness' checked={checker} onChange={checkHandler}id="test1"/>
-                        <label for="test1"></label>
+                        <label></label>
                     </form>
                 </section>
                 <article className='infoContainer'>

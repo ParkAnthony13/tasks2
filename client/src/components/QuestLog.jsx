@@ -3,6 +3,8 @@ import '../css/QuestLog.css';
 import NavBar from './NavBar';
 import GlobalState from '../contexts/GlobalState';
 import TaskCard from './TaskCard';
+import TaskCardB from './TaskCardB';
+import ProjectCard from './ProjectCard';
 
 
 const QuestLog = props => {
@@ -20,7 +22,7 @@ const QuestLog = props => {
             dueDate: calday,
             caldayToday: calday,
             day: today,
-            description:'test test test test test test',
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam debitis eos porro unde sint nemo qui repudiandae, eius, commodi amet deserunt placeat delectus. Beatae minima dolore voluptas delectus a numquam.',
             check:true
         },
         {
@@ -46,7 +48,7 @@ const QuestLog = props => {
         },
         {
             id:2,
-            title:'Project 1',
+            title:'Project 2',
             dueDate: calday,
             caldayToday: calday,
             day: today,
@@ -58,6 +60,7 @@ const QuestLog = props => {
     const taskList = [
         {
             id:1,
+            pid:1,
             title:'Taskbar component',
             dueDate: calday,
             caldayToday: calday,
@@ -66,7 +69,8 @@ const QuestLog = props => {
             check:true
         },
         {
-            id:1,
+            id:2,
+            pid:1,
             title:'Tasks2 MySql',
             dueDate: calday,
             caldayToday: calday,
@@ -75,7 +79,8 @@ const QuestLog = props => {
             check:true
         },
         {
-            id:2,
+            id:3,
+            pid:2,
             title:'Maps front end',
             dueDate: calday,
             caldayToday: calday,
@@ -84,7 +89,8 @@ const QuestLog = props => {
             check:true
         },
         {
-            id:2,
+            id:4,
+            pid:2,
             title:'kml file to json',
             dueDate: calday,
             caldayToday: calday,
@@ -93,7 +99,8 @@ const QuestLog = props => {
             check:true
         },
         {
-            id:2,
+            id:5,
+            pid:2,
             title:'json to map',
             dueDate: calday,
             caldayToday: calday,
@@ -104,41 +111,74 @@ const QuestLog = props => {
     ]
     const [projectTasks, setProjectTasks] = useState(taskList);
     const [currentProject, setCurrentProject] = useState(0);
-
+    const changeProject = (id) => {
+        console.log(id);
+        setCurrentProject(id);
+    }
 
     const dailyChecks = (pos) => {
         const temp = dailyState.map((item, idx) => {
-            {idx === pos ? item.check = !item.check: item.check = item.check}
+            if (idx === pos) {
+                item.check = !item.check
+                return(item);
+            } else {
+                return(item);
+            }
         })
         setDailyState(temp);
     }
+    const projectChecks = (pos) => {
+        const temp2 = projectState.map((item, idx) => {
+            if (idx === pos) {
+                item.check = !item.check
+                return(item);
+            } else {
+                return(item);
+            }
+        })
+        setProjectState(temp2);
+    }
+    const taskListChecks = (pos) => {
+        const temp3 = taskList.map((item, idx) => {
+            if (idx === pos) {
+                item.check = !item.check
+                return(item);
+            } else {
+                return(item);
+            }
+        })
+    }
 
-    const [dailies,setDailies] = useState([]);
-    const [projects,setProjects] = useState([]);
+    const [tasksToday, setTasksToday] = useState([
+        ...taskList.filter(item => item.dueDate === today)
+    ])
 
-
-
-
-
-
-
-
+    // const [projects,setProjects] = useState([]);
+    
+    
+    
+    
+    
+    
+    
+    
+    // const [dailies,setDailies] = useState([]);
     const saveTaskBar1 = () => {
-        <div>
-            {dailies.map((item, idx) => {
-                return(
-                    <TaskCard 
-                        className={item.check?'':'opacity'}
-                        key={idx}
-                        title={item.title}
-                        dueDate={item.dueDate}
-                        day={item.day}
-                        description={item.description}
-                        check={item.check}
-                    />
-                )
-            })}
-        </div>
+        // <div>
+        //     {dailies.map((item, idx) => {
+        //         return(
+        //             <TaskCard 
+        //                 className={item.check?'':'opacity'}
+        //                 key={idx}
+        //                 title={item.title}
+        //                 dueDate={item.dueDate}
+        //                 day={item.day}
+        //                 description={item.description}
+        //                 check={item.check}
+        //             />
+        //         )
+        //     })}
+        // </div>
     }
     const saveTaskBar2 = () => {
         <div>
@@ -148,27 +188,7 @@ const QuestLog = props => {
 
 
     useEffect(()=> {
-        let dailyData = [
-            {
-                id:1,
-                title:'This is due laaayyyter today',
-                dueDate: calday,
-                caldayToday: calday,
-                day: today,
-                description:'test test test test test test',
-                check:true
-            },
-            {
-                id:2,
-                title:'test2',
-                dueDate: calday,
-                caldayToday: calday,
-                day: today,
-                description:'test test test test test test',
-                check:false
-            }
-        ];
-        setDailies(dailyData)
+
     },[])
 
     return(
@@ -185,11 +205,14 @@ const QuestLog = props => {
                                     <button>ADD</button>
                                 </div>
                                 <div>
-                                    {dailies.map((item, idx) => {
+                                    {dailyState.map((item,idx) => {
                                         return(
-                                            <TaskCard 
-                                                className={item.check?'':'opacity'}
+                                            <TaskCardB
                                                 key={idx}
+                                                value={item.check}
+                                                checked={dailyState[idx].check}
+                                                onChange={() => dailyChecks(idx)}
+
                                                 title={item.title}
                                                 dueDate={item.dueDate}
                                                 day={item.day}
@@ -211,8 +234,23 @@ const QuestLog = props => {
                                     <button>ADD</button>
                                 </div>
                                 <div>
-                                    <TaskCard/>
-                                    <TaskCard/>
+                                    {projectState.map((item,idx) => {
+                                        return(
+                                            <ProjectCard
+                                                key={idx}
+                                                value={item.check}
+                                                checked={projectState[idx].check}
+                                                onChange={() => projectChecks(idx)}
+
+                                                title={item.title}
+                                                dueDate={item.dueDate}
+                                                day={item.day}
+                                                description={item.description}
+                                                check={item.check}
+                                                changeProject={() => changeProject(item.id)}
+                                            />
+                                        )
+                                    })}
                                 </div>
                             </div>
                             <div className='lists'>
@@ -221,6 +259,22 @@ const QuestLog = props => {
                                     <button>ADD</button>
                                 </div>
                                 <div>
+                                    {projectTasks.filter((proj) => proj.pid == currentProject).map((item,idx) => {
+                                        return(
+                                            <TaskCardB
+                                                key={idx}
+                                                value={item.pid}
+                                                checked={projectTasks[idx].check}
+                                                onChange={() => taskListChecks(idx)}
+
+                                                title={item.title}
+                                                dueDate={item.dueDate}
+                                                day={item.day}
+                                                description={item.description}
+                                                check={item.check}
+                                            />
+                                        )
+                                    })}
                                     <div className='daily'>
                                         <section className='complete'></section>
                                         <article>text</article>
@@ -242,10 +296,22 @@ const QuestLog = props => {
                                     <button>ADD</button>
                                 </div>
                                 <div>
-                                    <TaskCard/>
-                                    <TaskCard/>
-                                    <TaskCard/>
-                                    <TaskCard/>
+                                    {projectTasks.filter((proj) => proj.dueDate == today).map((item,idx) => {
+                                        return(
+                                            <TaskCardB
+                                                key={idx}
+                                                value={item.pid}
+                                                checked={projectTasks[idx].check}
+                                                onChange={() => taskListChecks(idx)}
+
+                                                title={item.title}
+                                                dueDate={item.dueDate}
+                                                day={item.day}
+                                                description={item.description}
+                                                check={item.check}
+                                            />
+                                        )
+                                    })}
                                 </div>
                             </div>
                         </div>
