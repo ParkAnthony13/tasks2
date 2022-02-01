@@ -35,7 +35,6 @@ const QuestLog = props => {
             check:false
         }
     ];
-    const [dailyState, setDailyState] = useState(listDailies);
     const listProjects = [
         {
             id:1,
@@ -56,7 +55,6 @@ const QuestLog = props => {
             check:true
         }
     ]
-    const [projectState, setProjectState] = useState(listProjects);
     const taskList = [
         {
             id:1,
@@ -109,13 +107,20 @@ const QuestLog = props => {
             check:true
         }
     ]
+    const [dailyState, setDailyState] = useState(listDailies);
+    const [projectState, setProjectState] = useState(listProjects);
     const [projectTasks, setProjectTasks] = useState(taskList);
     const [currentProject, setCurrentProject] = useState(0);
+    const [filteredTasks, setFilteredTasks] = useState([
+        
+    ]);
+
+
     const changeProject = (id) => {
         console.log(id);
         setCurrentProject(id);
     }
-
+    
     const dailyChecks = (pos) => {
         const temp = dailyState.map((item, idx) => {
             if (idx === pos) {
