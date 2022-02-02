@@ -112,7 +112,7 @@ const QuestLog = props => {
     const [projectTasks, setProjectTasks] = useState(taskList);
     const [currentProject, setCurrentProject] = useState(0);
     const [filteredTasks, setFilteredTasks] = useState([
-        
+        ...dailyState, ...projectTasks
     ]);
 
 
@@ -301,13 +301,13 @@ const QuestLog = props => {
                                     <button>ADD</button>
                                 </div>
                                 <div>
-                                    {projectTasks.filter((proj) => proj.dueDate == today).map((item,idx) => {
+                                    {filteredTasks.filter((proj) => proj.dueDate === calday).map((item,idx) => {
                                         return(
                                             <TaskCardB
                                                 key={idx}
-                                                value={item.pid}
-                                                checked={projectTasks[idx].check}
-                                                onChange={() => taskListChecks(idx)}
+                                                // value={item.pid}
+                                                // checked={projectTasks[idx].check}
+                                                // onChange={() => taskListChecks(idx)}
 
                                                 title={item.title}
                                                 dueDate={item.dueDate}
