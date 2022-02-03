@@ -202,7 +202,7 @@ const QuestLog = props => {
             <div className='mainContainer'>
                 <div className='mainGrid'>
                     <div className='Dailies'>
-                        <h3>Dailies</h3>
+                        <h3>Dailies and Due Today</h3>
                         <div className='noSplit'>
                             <div className='lists'>
                                 <div className='inputTypeB'>
@@ -210,6 +210,22 @@ const QuestLog = props => {
                                     <button>ADD</button>
                                 </div>
                                 <div>
+                                    {filteredTasks.filter((proj) => proj.dueDate === calday).map((item,idx) => {
+                                        return(
+                                            <TaskCardB
+                                                key={idx}
+                                                // value={item.pid}
+                                                // checked={projectTasks[idx].check}
+                                                // onChange={() => taskListChecks(idx)}
+
+                                                title={item.title}
+                                                dueDate={item.dueDate}
+                                                day={item.day}
+                                                description={item.description}
+                                                check={item.check}
+                                            />
+                                        )
+                                    })}
                                     {dailyState.map((item,idx) => {
                                         return(
                                             <TaskCardB
