@@ -3,9 +3,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* display:grid;
-    align-items: center;
-    place-content: center; */
 }
 .taskCard {
     background: rgba(250, 249, 246, 1);
@@ -39,9 +36,7 @@
     display: flex;
     justify-content: center;
 }
-/* .taskCard section:nth-child(2) {
-    border-radius: 0 3px 3px 0;
-} */
+
 .taskCard article {
     padding: 1rem;
     width: 100%;
@@ -57,15 +52,7 @@
     align-items: center;
     flex-wrap: wrap;
 }
-/* .infoBarSmall {
-    display:flex;
-    flex-wrap: wrap;
-    align-items: center;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 700;
-    font-size: .8rem;
-    color: rgba(167, 167, 167, 0.8);
-} */
+
 .infoLeft {
     position: relative;
     left: 0;
@@ -113,7 +100,18 @@
 .daily:hover {
     outline: 1px solid black;
 }
-
+.noRepeat {
+    background: rgb(69,137,210);
+}
+.interDay {
+    background: rgb(200,107,254);
+}
+.interWeek {
+    background: rgb(71,235,255);
+}
+.interYear {
+    background: rgb(84,140,148);
+}
 
 /*  
     script == checkContainer

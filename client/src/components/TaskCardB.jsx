@@ -1,12 +1,13 @@
-import react, { useState, useRef, useEffect } from 'react';
+import react, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import '../css/TaskCard.css';
 import CheckBox from './minorComponents/CheckBox';
 import DayInWeek from './minorComponents/DayInWeek';
-
+import EditWindow from './EditWindow';
 
 
 const TaskCardB = props => {
     const {
+        id,
         title,
         dueDate, 
         caldayToday, 
@@ -15,11 +16,19 @@ const TaskCardB = props => {
         check,
         value,
         checked,
-        onChange
+        onChange,
+        interval,
     } = props;
-
+    const [toggle, setToggle] = useState(true);
+    const [selectId, setSelectedId] = useState(id);
+    const switchToggle = () => {
+        setToggle(!toggle);
+    };
     const [checker, setChecker] = useState(check);
     const [css,setcss] = useState('taskCard');
+    const [intervalCss, setIntervalCss] = useState('')
+    const [infoCSS,setInfoCSS] = useState('infoBar');
+
     const cssHandler = () => {
         if (css == 'taskCard') {
             setcss('taskCard opacity');
@@ -29,19 +38,31 @@ const TaskCardB = props => {
     }
     const checkHandler = () => {
         setChecker(!checker);
-        console.log(checker);
     }
 
-
-    const [infoCSS,setInfoCSS] = useState('infoBar');
-
-
+    useEffect(()=> {
+        if (interval === 0) {
+            setIntervalCss('noRepeat');
+        } 
+        else if (interval === 1) {
+            setIntervalCss('interDay');
+        }
+        else if (interval === 7) {
+            setIntervalCss('interWeek');
+        }  
+        else if (interval === 30) {
+            setIntervalCss('interMonth');
+        }
+        else if (interval === 365) {
+            setIntervalCss('interYear');
+        }
+    },[])
 
 
     return(
-        <div className='taskContainer'>
+        <div className={`taskContainer ${check ? 'opacity' : ''}`}>
             <div className={css}>
-                <section className='inProgress dailyLeft'>
+                <section className={`${intervalCss} dailyLeft`}>
                     <form className='checkContainer' action="#">
                         <input type="checkbox" value='completedness' checked={checked} onChange={onChange}id="test1"/>
                         <label></label>
@@ -56,7 +77,8 @@ const TaskCardB = props => {
                         <div className='date'>
                         </div>
                         <div className="infoRight">
-                            <DayInWeek/>
+                            <EditWindow switchToggle={switchToggle} toggle={toggle} selectId={selectId}/>
+                            <DayInWeek id={id}/>
                         </div>
                     </div>
                     <div className='description'>
@@ -64,7 +86,7 @@ const TaskCardB = props => {
                     </div>
                 </article>
                 <section className='dailyRight'>
-                    <div>...</div>
+                    <div onClick={()=> switchToggle(id)}>...</div>
                     <div>x</div>
                 </section>
             </div>

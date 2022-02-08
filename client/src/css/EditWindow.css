@@ -1,0 +1,31 @@
+.editWindow {
+    display: flex;
+    justify-content: center;
+    position:fixed;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width:100%;
+    padding: 3rem;
+
+    background: rgba(0,0,0,0.8);
+    z-index: 50;
+    color:white;
+    font-size: larger;
+
+}
+.hidden {
+    display:none;
+}
+.editForm {
+    width: 60%;
+    max-width: 600px;
+    min-width: 360px;
+    height: 500px;
+    background: rgba(200,200,200,1);
+    color: black;
+    border-radius: 1rem;
+    z-index: 100;
+    padding: 1rem;
+}

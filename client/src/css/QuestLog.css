@@ -159,7 +159,7 @@ button:focus {
 
 .lists {
     padding: 1rem;
-    background: gainsboro;
+    background: rgba(200,200,200,1);
     display: flex;
     flex-direction: column;
     min-height: 800px;
@@ -202,6 +202,20 @@ button:focus {
     -webkit-appearance: none;
     -moz-appearance: none;
 }
+.legend {
+    margin-left: 2rem;
+}
+.legendItem {
+    display: flex;
+    align-items: center;
+}
+.legendItem span {
+    height: 20px;
+    width: 80px;
+    margin: 3px 10px;
+    border-radius: 3px;
+}
+
 
 
 @media (min-width: 766px) and (max-width:1111px) {
