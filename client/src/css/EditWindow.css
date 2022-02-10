@@ -13,14 +13,28 @@
     z-index: 50;
     color:white;
     font-size: larger;
-
+}
+.closeEdit {
+    /* display: none; */
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 2rem;
+    background: rgba(221, 62, 62, 0.8);
+    color: white;
+    border-radius: 3px;
 }
 .hidden {
     display:none;
 }
 .editForm {
     width: 60%;
-    max-width: 600px;
+    max-width: 475px;
     min-width: 360px;
     height: 500px;
     background: rgba(200,200,200,1);

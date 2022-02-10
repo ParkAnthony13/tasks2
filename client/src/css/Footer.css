@@ -1,6 +1,7 @@
 .FooterContainer {
     position: relative;
     bottom:0;
+    width: 100vw;
     margin: auto;
     color: white;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

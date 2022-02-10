@@ -138,14 +138,33 @@ const EditWindow = props => {
     return(
         <div className={toggle ? 'editWindow hidden' : 'editWindow'} onClick={switchToggle}>
             <div className='editForm' onClick={cancelOnClick}>
+                <div style={{position:'relative'}} onClick={switchToggle}>
+                    <div className='closeEdit'>x</div>
+                </div>
                 <div className='editFormTop'>
                     <h2>Edit Task</h2>
                         {selected
                             ? <div>
-                                {selected.title}
+                                <form>
+                                    <div className='dflex flexCol pad1'>
+                                        <label>{selected.title}</label>
+                                        <input type="text" placeholder={selected.title}/>
+                                    </div>
+                                    <div className='dflex flexCol pad1'>
+                                        <label>{selected.description}</label>
+                                        <textarea name="description" cols="20" rows="7" placeholder={selected.description}></textarea>
+                                    </div>
+                                    <div className='dflex flexCol pad1'>
+                                        <div className='dflex'>
+                                            <h4 style={{marginRight:'1.5rem'}}>Due Date</h4>
+                                            <p>{selected.dueDate}</p>
+                                        </div>
+                                        <input type="date"/>
+                                    </div>
+                                    <button>Save Changes</button>
+                                </form>
                             </div> 
                             : <div>Error Loading Task Data</div>}
-                    <button onClick={testfunc}>test</button>
                 </div>
             </div>
         </div>

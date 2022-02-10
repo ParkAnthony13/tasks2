@@ -4,6 +4,7 @@ import MainContent from '../components/MainContent';
 import Footer from '../components/Footer';
 import GlobalState from '../contexts/GlobalState';
 import MobileNav from './MobileNav';
+import '../css/Landing.css'
 
 const Landing = props => {
     const [state, setState] = useContext(GlobalState);
@@ -13,7 +14,7 @@ const Landing = props => {
     }
 
     return (
-        <div>
+        <div className='landingPage'>
             <div className='landing'>
                 
                 <nav>

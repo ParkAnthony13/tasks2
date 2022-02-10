@@ -14,7 +14,7 @@ function App() {
 
   return (
     <GlobalState.Provider value={[state, setState]}>
-      <div>
+      <div className='appContainer'>
         <Router>
           <Landing path='/'/>
           <Projects path='/projects'/>

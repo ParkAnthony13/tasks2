@@ -12,6 +12,7 @@
   --four: repeat(4,fr);
   --five: repeat(5,fr);
 }
+
 .landing {
   position: relative;
   height: 100%;
@@ -178,6 +179,9 @@ h1 {
 
 .dflex {
   display:flex;
+}
+.flexCol {
+  flex-direction: column;
 }
 .jcCenter {
   justify-content: center;
